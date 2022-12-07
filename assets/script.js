@@ -2,8 +2,6 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-var timeCycle = [9, 10, 11, 12, 13, 14, 15, 16, 17];
-
 $(window).on("load", function () {
   // Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
