@@ -2,9 +2,9 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-$(window).on("load", function () {
+var timeCycle = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 
-  console.log(this);
+$(window).on("load", function () {
   // Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -18,14 +18,26 @@ $(window).on("load", function () {
     localStorage.setItem(time, task);
   });
 
-  // TODO: Add code to apply the past, present, or future class to each time
+  // Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
 
   var currentTime = dayjs(new Date()).format("H");
-  console.log(currentTime);
+
+  $(".description").each(function() {
+    $(this).parent().removeClass("past present future");
+    var taskTime = parseInt($(this).parent().attr("id").replace("hour-",""));
+    
+    if (taskTime < currentTime){
+      $(this).parent().addClass("past");
+    } else if(taskTime == currentTime){
+      $(this).parent().addClass("present");
+    } else{
+      $(this).parent().addClass("future");
+    }  
+  });
 
 
   // Add code to get any user input that was saved in localStorage and set
