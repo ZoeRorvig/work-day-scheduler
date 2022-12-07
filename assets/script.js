@@ -2,7 +2,10 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
+// TODO: Add "appointment added to local storage" confirmation.
+//TODO: Is this the right call?
 $(window).on("load", function () {
+
   // Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -22,7 +25,8 @@ $(window).on("load", function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
 
-  var currentTime = dayjs(new Date()).format("H");
+  var currentTime = dayjs().add(3,"hour").hour();
+  console.log(currentTime);
 
   $(".description").each(function() {
     $(this).parent().removeClass("past present future");
@@ -54,7 +58,9 @@ $(window).on("load", function () {
 
   // Code to display the current date in the header of the page.
   var currentDate = $("#currentDay");
-  var date = dayjs(new Date()).format("dddd, MMMM D");
+
+ // TODO: How do you get the ending on the day (th)?
+  var date = dayjs(new Date()).format("dddd, MMMM Do");
       currentDate.text(date);
 
 });
