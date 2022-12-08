@@ -6,10 +6,10 @@
 - [Visuals](#visuals)
 
 ## Description 
-This webpage presents a simple calendar app for scheduling your work day.
+This webpage presents a simple calendar app for use when scheduling your work day.
 
 Features Include:
-- The current date is displayed in the header section of the screen. 
+- The current date displayed in the header section of the screen. 
 - The user can enter a task into a time slot and click the save button. 
 - Once the user clicks the save button, the task is stored in localStorage.
 - If the page is refreshed, then the task will remain in the time slot. 
@@ -19,11 +19,11 @@ Features Include:
 
 The following is a screenshot of the whole page:
 
-TODO: [insert photo]
+![screenshot](./images/full-page.PNG)
 
 The following is a gif to show functionality:
 
-![screenshot](./images/work-day-scheduler.gif)
+![gif](./images/work-day-scheduler.gif)
 
 
 
