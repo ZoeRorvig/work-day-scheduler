@@ -25,8 +25,7 @@ $(window).on("load", function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
 
-  var currentTime = dayjs().add(3,"hour").hour();
-  console.log(currentTime);
+  var currentTime = dayjs().subtract(5,"hour").hour();
 
   $(".description").each(function() {
     $(this).parent().removeClass("past present future");
@@ -46,20 +45,12 @@ $(window).on("load", function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
 
-  $("#hour-9 .description").val(localStorage.getItem("hour-9"));
-  $("#hour-10 .description").val(localStorage.getItem("hour-10"));
-  $("#hour-11 .description").val(localStorage.getItem("hour-11"));
-  $("#hour-12 .description").val(localStorage.getItem("hour-12"));
-  $("#hour-13 .description").val(localStorage.getItem("hour-13"));
-  $("#hour-14 .description").val(localStorage.getItem("hour-14"));
-  $("#hour-15 .description").val(localStorage.getItem("hour-15"));
-  $("#hour-16 .description").val(localStorage.getItem("hour-16"));
-  $("#hour-17 .description").val(localStorage.getItem("hour-17"));
+  for (i = 9; i <= 17; i++) {
+    $("#hour-" + i).children(".description").val(localStorage.getItem("hour-" + i));
+  }
 
   // Code to display the current date in the header of the page.
   var currentDate = $("#currentDay");
-
- // TODO: How do you get the ending on the day (th)?
   var date = dayjs(new Date()).format("dddd, MMMM Do");
       currentDate.text(date);
 
