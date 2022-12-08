@@ -19,6 +19,10 @@ Features Include:
 
 The following is a screenshot of the whole page:
 
+TODO: [insert photo]
+
+The following is a gif to show functionality:
+
 ![screenshot](./images/work-day-scheduler.gif)
 
 
