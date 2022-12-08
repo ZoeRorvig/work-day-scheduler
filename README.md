@@ -19,7 +19,7 @@ Features Include:
 
 The following is a screenshot of the whole page:
 
-![screenshot](./images/title-page.PNG)
+![screenshot](./images/work-day-scheduler.gif)
 
 
 

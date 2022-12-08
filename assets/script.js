@@ -4,14 +4,14 @@ $(window).on("load", function () {
 
   // Waits for a "Save Button" to be clicked and then saves the value 
   // entered into the text box to Local Storage. 
-  $('.saveBtn').click(function () {
+  $(".saveBtn").click(function () {
     var time = $(this).parent().attr("id");
     var task = $(this).siblings(".description").val();
     localStorage.setItem(time, task);
   });
 
   // Applies the past, present, or future class to each time block based on the local time. 
-  var currentTime = dayjs().hour();
+  var currentTime = dayjs().subtract(8,'hours').hour();
 
   $(".description").each(function() {
     var taskTime = parseInt($(this).parent().attr("id").split("-")[1]);
