@@ -11,7 +11,7 @@ $(window).on("load", function () {
   });
 
   // Applies the past, present, or future class to each time block based on the local time. 
-  var currentTime = dayjs().subtract(8,'hours').hour();
+  var currentTime = dayjs().hour();
 
   $(".description").each(function() {
     var taskTime = parseInt($(this).parent().attr("id").split("-")[1]);
