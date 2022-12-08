@@ -2,8 +2,6 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-// TODO: Add "appointment added to local storage" confirmation.
-//TODO: Is this the right call?
 $(window).on("load", function () {
 
   // Add a listener for click events on the save button. This code should
@@ -15,8 +13,10 @@ $(window).on("load", function () {
 
   $('.saveBtn').click(function () {
     var time = $(this).parent().attr("id");
+    console.log(time);
     var task = $(this).siblings(".description").val();
     localStorage.setItem(time, task);
+
   });
 
   // Add code to apply the past, present, or future class to each time
@@ -25,12 +25,11 @@ $(window).on("load", function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
 
-  var currentTime = dayjs().subtract(5,"hour").hour();
+  var currentTime = dayjs().hour();
 
   $(".description").each(function() {
-    $(this).parent().removeClass("past present future");
-    var taskTime = parseInt($(this).parent().attr("id").replace("hour-",""));
-    
+    var taskTime = parseInt($(this).parent().attr("id").split("-")[1]);
+
     if (taskTime < currentTime){
       $(this).parent().addClass("past");
     } else if(taskTime == currentTime){
@@ -39,7 +38,6 @@ $(window).on("load", function () {
       $(this).parent().addClass("future");
     }  
   });
-
 
   // Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
@@ -51,7 +49,5 @@ $(window).on("load", function () {
 
   // Code to display the current date in the header of the page.
   var currentDate = $("#currentDay");
-  var date = dayjs(new Date()).format("dddd, MMMM Do");
-      currentDate.text(date);
-
+      currentDate.text(dayjs().format("dddd, MMMM Do"));
 });
