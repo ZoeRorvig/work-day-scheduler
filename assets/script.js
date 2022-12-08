@@ -6,7 +6,6 @@ $(window).on("load", function () {
   // entered into the text box to Local Storage. 
   $('.saveBtn').click(function () {
     var time = $(this).parent().attr("id");
-    console.log(time);
     var task = $(this).siblings(".description").val();
     localStorage.setItem(time, task);
   });
